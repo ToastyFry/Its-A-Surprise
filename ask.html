@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="fr" data-theme="light" class="bg-mandy-50">
+<head>
+	<title>Mwaaa</title> <!-- Remember to change title -->
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="robots" content="noindex">
+	<meta name="googlebot" content="noindex">
+
+	<meta name="og:description" content="">
+	<meta name="og:title" content="">
+	<meta name="description" content="">
+	<meta name="title" content="">
+	<meta name="author" content="">
+	<meta name="keywords" content="">
+	<meta name="twitter:image" content="">
+
+    <link rel="stylesheet" href="style.css">
+
+	<script async src="emojis.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/confetti-js"></script>
+
+	<script>
+		function vibrate(ms){
+			try {
+				window.navigator.vibrate(ms)
+			} catch (error) { console.error("Vibration not supported") }
+		}
+
+		window.onload = () => {
+			document.getElementById("mainGif").src = "./img/Nezha2.avif"
+			document.body.style.display = "flex"
+            document.getElementById("mainText").style.textAlign = "center";
+            document.getElementById("mainText").style.fontSize = "24px";
+            document.getElementById("mainText").style.fontWeight = "bold";
+            document.getElementById("mainText").style.color = "pink";
+		}
+
+		var noCount = 0
+		var yesPx = 2
+		var yesPy = 0.5
+
+		function yes(){
+			document.getElementById("mainGif").src = "./img/happy2.gif"
+			document.getElementById("buttons").remove()
+			document.getElementById("mainText").innerText = "WooHoo!! So what day shall we go?" //Write smtg here as message//
+			
+			vibrate(300)
+
+			var mainText = document.getElementById("mainText")
+			var mainTextPosition = mainText.getBoundingClientRect()
+
+			var intervalI = 0
+			var interval = setInterval(() => {
+				intervalI++
+				if(intervalI > 4) clearInterval(interval)
+                
+				emojisplosion({
+					emojiCount: 15,
+					container: document.body,
+					emojis: ["✨", "😆", "🎉", "😁", "✨"],
+					position: { x: 0, y: 100 }
+				})
+			}, 30)
+		}
+
+		function no(){
+			noCount++
+
+			vibrate(50)
+
+			if(noCount > 19){
+				document.getElementById("mainText").classList.remove("text-mandy-400", "hover:text-mandy-500")
+				document.getElementById("mainText").classList.add("text-gray-500")
+				document.getElementById("mainGif").src = "./img/sad4.gif"
+				document.getElementById("buttons").remove()
+				document.getElementById("mainText").innerText = "That's fine..."
+				vibrate(900)
+			}
+			else if(noCount > 14) document.getElementById("mainGif").src = "./img/sad3.gif"
+			else if(noCount > 11) document.getElementById("mainGif").src = "./img/sad2.gif"
+			else if(noCount > 8) document.getElementById("mainGif").src = "./img/sad1.gif"
+            else if(noCount > 5) document.getElementById("mainGif").src = "./img/sad3.gif"
+			else if(noCount > 2) document.getElementById("mainGif").src = "./img/sad2.gif"
+			else if(noCount > 0) document.getElementById("mainGif").src = "./img/sad1.gif"
+            
+			if(noCount < 20){
+				yesPx += 0.7
+				yesPy += 0.3
+
+				document.getElementById("yesButton").style.paddingLeft = yesPx + "rem"
+				document.getElementById("yesButton").style.paddingRight = yesPx + "rem"
+				document.getElementById("yesButton").style.paddingTop = yesPy + "rem"
+				document.getElementById("yesButton").style.paddingBottom = yesPy + "rem"
+			}
+		}
+	</script>
+</head>
+<body class="bg-mandy-50 absolute inset-0 items-center justify-center text-center font-['Poppins']" style="display: none;">
+	<div>
+		<img id="mainGif" src="" alt="Illustration" class="mx-auto w-48 h-48" />
+
+		<h3 id="mainText" class="mt-6 py-1 px-4 text-mandy-400 hover:text-mandy-500 ease-in transition text-3xl leading-10 font-semibold">If you would like to go watch Nezha 2 with me? :P</h3>
+		
+		<div id="buttons" class="mt-8 space-x-3 space-y-3">
+			<div class="button-container">
+				<button id="yesButton" onclick="yes()" style="padding-left: 2rem; padding-right: 2rem; padding-top: 0.5rem; padding-bottom: 0.5rem;" class="text-white ease-in transition shadow-xl rounded-lg bg-green-400 hover:bg-green-500/90">Yes</button>
+				<button id="noButton" onclick="no()" class="text-white ease-in transition shadow-xl rounded-lg px-8 py-2 bg-mandy-600 hover:bg-mandy-700/90">No</button>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

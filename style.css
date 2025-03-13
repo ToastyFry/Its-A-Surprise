@@ -1,0 +1,114 @@
+body {
+    font-family: Brush Script MT, cursive;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+    background: url('./img/background1.jpg') no-repeat center center/cover;
+}
+
+#mainGif {
+    display: block;
+    width: 300px; /* Adjust width */
+    height: auto; /* Keeps aspect ratio */
+    margin: 0 auto;
+}
+
+#yesButton{
+    background-color: #00ff15; /* Change to any color */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 30px;
+}
+
+#noButton{
+    background-color: #D72638; /* Change to any color */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 15px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Align vertically */
+    gap: 10px; /* Space between buttons */
+    margin-top: 20px; /* Add space above */
+}
+
+.login-container {
+    justify-content: center;
+    justify-items: center;
+    background: rgba(255, 255, 255, 0.747);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: justify;
+}
+
+.login-container h2 {
+    margin-bottom: 20px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    font-weight: semi-bold;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.center-input {
+    display: block;
+    margin: 0 auto;
+}
+
+.login-button {
+    width: 100%;
+    padding: 10px;
+    background: #e07ed0;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.login-button:hover {
+    background: #e07ed0;
+}
+
+/* poppins-regular - latin */
+@font-face {
+	font-display: swap;
+	font-family: 'Poppins';
+	font-style: bold;
+	font-weight: 400;
+	src: url('./fonts/poppins-v20-latin-regular.woff2') format('woff2');
+}
+
+/* poppins-700 - latin */
+@font-face {
+	font-display: swap;
+	font-family: 'Poppins';
+	font-style: bold;
+	font-weight: 700;
+	src: url('./fonts/poppins-v20-latin-700.woff2') format('woff2');
+}
+
+.fade {
+    animation: fadeEffect 1.5s ease-in-out;
+}
